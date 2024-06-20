@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 import time
-url = 'postgresql+psycopg2://postgres:x@167.234.231.201:6543/postgres'
+url = 'postgresql+psycopg2://postgres:x@IP:6543/postgres'
 engine = create_engine(url)
 
 Session = sessionmaker(bind=engine)
