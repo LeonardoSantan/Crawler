@@ -21,7 +21,7 @@ def insert_data_fii(nomes_fii, valores_fii, dividendos_valores, links):
     date_str = time.strftime("%Y-%m-%d %H:%M:%S")
     print(date_str)
     try:
-        
+
         valores_fii_truncated = valores_fii[3:]
         valores_fii_modificado = valores_fii_truncated.replace(
             '.', '').replace(',', '.')
@@ -38,11 +38,12 @@ def insert_data_fii(nomes_fii, valores_fii, dividendos_valores, links):
             'date_consulta': date_str
         })
         session.commit()
-        
+
     except Exception as e:
         print(f"Connection test failed: {e}")
         session.rollback()
 
     finally:
         session.close()
-        print(f"INSERT INTO FII values({nomes_fii}, {valores_fii}, {dividendos_valores}, {links}, {date_str})")
+        print(f"INSERT INTO FII values('{nomes_fii}', {valores_fii}, {
+              dividendos_valores}, '{links}', '{date_str}')")
